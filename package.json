@@ -1,0 +1,11 @@
+{
+  "name": "zero-lag-trading-platform",
+  "version": "1.0.0",
+  "description": "Ultra-fast zero-lag personal trading platform with MoneyControl feed and paper trading engine",
+  "scripts": {
+    "start": "node server/src/index.js",
+    "build:client": "npm run build --prefix client",
+    "client:dev": "npm run dev --prefix client",
+    "server:dev": "npm start --prefix server"
+  }
+}
