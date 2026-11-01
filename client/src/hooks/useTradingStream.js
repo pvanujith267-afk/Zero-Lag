@@ -36,10 +36,10 @@ export function useTradingStream(activeSymbol) {
     let tpsInterval = null;
 
     const connect = () => {
-      const host = typeof window !== 'undefined' && window.location.port === '4000'
-        ? window.location.host
-        : 'localhost:4000';
-      const ws = new WebSocket(`ws://${host}`);
+      const isDev = import.meta.env.DEV;
+      const host = isDev ? 'localhost:4000' : window.location.host;
+      const protocol = !isDev && window.location.protocol === 'https:' ? 'wss://' : 'ws://';
+      const ws = new WebSocket(`${protocol}${host}`);
       wsRef.current = ws;
 
       ws.onopen = () => {
