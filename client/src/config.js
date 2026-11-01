@@ -1,3 +1,1 @@
-export const API_BASE = typeof window !== 'undefined' && window.location.port === '4000'
-  ? ''
-  : 'http://localhost:4000';
+export const API_BASE = import.meta.env.DEV ? 'http://localhost:4000' : '';
